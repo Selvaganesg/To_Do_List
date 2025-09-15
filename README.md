@@ -36,10 +36,84 @@ Deploy the website.
 Upload to GitHub Pages for free hosting.
 
 ## PROGRAM
+```
+index.html
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-List</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h1>Todo - List</h1>
+            <ul id="ullist">
+
+            </ul>
+            <input id="addtask">
+            <button onclick="show()">ADD</button>
+            <h1>Completed</h1>
+            <ul id="donelist">
+
+            </ul>
+        </center>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
+
+style.css
+
+body{
+    background-color: #E6CFA9;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    background-color: #EFF5D2;
+    width: 300px;
+    height: 350px;
+}
+
+li{
+    list-style: none;
+}
+
+index.js
+
+var input = document.getElementById("addtask")
+var ullist  = document.getElementById("ullist")
+var donelist = document.getElementById("donelist")
+
+let list = new Array();
+        
+function show(){
+    if(input.value!=''){
+        list.push(input.value)
+        ullist.innerHTML += '<li id="'+(list.length-1)+'"><button onclick="get('+(list.length-1)+')">'+input.value+'</button></li><br>'
+        input.value = " "
+    }
+}
+
+function get(id){
+    donelist.innerHTML += "<li>"+(list[id])+"</li>"
+    document.getElementById(id).style.display="none"
+}
+
+
+```
 
 ## OUTPUT
 
+![alt text](<Screenshot 2025-09-15 103814.png>)
 
 ## RESULT
 The program for creating To-do list using JavaScript is executed successfully.
